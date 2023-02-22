@@ -32,7 +32,7 @@ This project would engender discussion topics like performance of various models
 ## Proposed Timeline
 
 INSERT IMAGE HERE
-![Gantt Chart](correlation plot.png)
+![Gantt Chart](Gantt-mini.png)
 
 [Link to Full Gantt Chart](https://drive.google.com/file/d/1kYv0eMd6moiMXjqHtyMAOoOe5MlqGz8l/view?usp=sharing)
 
