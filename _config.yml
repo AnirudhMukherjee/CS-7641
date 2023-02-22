@@ -1,10 +1,10 @@
-title: Just the Docs Template
+title: CS 7641
 description: A starter template for a Jeykll site using the Just the Docs theme!
 theme: just-the-docs
 
 url: https://anirudhmukherjee.github.io/CS-7641
 
 aux_links:
-  Template Repository: https://github.com/anirudhmukherjee/CS-7641
+  Project Repository: https://github.com/anirudhmukherjee/CS-7641
 plugins:
   - jekyll-default-layout

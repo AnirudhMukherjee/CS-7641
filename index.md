@@ -1,7 +1,15 @@
 ---
-title: Home
+title: Project Proposal
 layout: home
 ---
+# The Perfect Playlist
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Introduction
 
@@ -31,7 +39,6 @@ This project would engender discussion topics like performance of various models
 ![Correlation plot](correlation plot.png)
 ## Proposed Timeline
 
-INSERT IMAGE HERE
 ![Gantt Chart](gantthighres.png )
 
 [Link to Full Gantt Chart](https://drive.google.com/file/d/1kYv0eMd6moiMXjqHtyMAOoOe5MlqGz8l/view?usp=sharing)
