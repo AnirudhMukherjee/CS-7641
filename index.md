@@ -27,14 +27,14 @@ We plan on measuring the impact of recommendations using three metrics over a k-
 This project would engender discussion topics like performance of various models in song recommendations, ideal approach of recommending songs from song sets and determining the appropriate distance measures for choosing the closest song from the candidate pool of songs.
 
 ![Heat_map](heat_map.png)
-![Scatter plot](https://github.com/AnirudhMukherjee/CS-7641/blob/main/t.png)
-![Correlation plot](https://github.com/AnirudhMukherjee/CS-7641/blob/main/correlation%20plot.png)
+![Scatter plot](t.png)
+![Correlation plot](correlation plot.png)
 ## Proposed Timeline
 
 INSERT IMAGE HERE
+![Gantt Chart](correlation plot.png)
 
-
-[Link to Gantt Chart](https://drive.google.com/file/d/1kYv0eMd6moiMXjqHtyMAOoOe5MlqGz8l/view?usp=sharing)
+[Link to Full Gantt Chart](https://drive.google.com/file/d/1kYv0eMd6moiMXjqHtyMAOoOe5MlqGz8l/view?usp=sharing)
 
 ## Contribution table
 
