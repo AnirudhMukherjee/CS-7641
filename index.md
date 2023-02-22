@@ -2,7 +2,7 @@
 title: Home
 layout: home
 ---
-
+<!-- 
 This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
 
 If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
@@ -27,4 +27,8 @@ To get started with creating a site, just click "[use this template]"!
 [README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
 [Jekyll]: https://jekyllrb.com
 [GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate -->
+## Introduction/Background
+Phrases such as “Alexa, play songs like ‘Girls like you’ on Spotify” and “Playing more of what you like”, have become ubiquitous this decade and the core algorithms powering them are recommender systems. Recommender systems find applications in almost every software product we interact with and are greatly responsible for making them more enjoyable for us.
+Music recommendation systems generally operate by analyzing a user's music preferences, both explicit ratings and implicit oftenly heard songs, and mapping another song closest to the preference. For implicit ratings, collaborative filtering on audio properties of the song and other metadata about it are leveraged to plug into a model based on collaborative filtering [1] or through Singular Value Decomposition [2]. On the flip side, some recommendation models also operate via clustering similar songs together and recommending new songs from the cluster [3].
+For this project, we will be working on the Million Song dataset [4] which contains 300GB of metadata of 1 million songs, as the name suggests. Some of the features of this dataset include beat frequency, artist tags, energy, danceability, segments_timbre_shape. While we do not know what every feature represents in terms of audio properties, the plenty of features do give us enough playroom to engineer more meaningful features for the model.
