@@ -4,16 +4,22 @@ layout: home
 ---
 
 ## Introduction
+
 Phrases such as “Alexa, play songs like ‘Girls like you’ on Spotify” and “Playing more of what you like”, have become ubiquitous this decade and the core algorithms powering them are recommender systems. Recommender systems find applications in almost every software product we interact with and are greatly responsible for making them more enjoyable for us.
 Music recommendation systems generally operate by analyzing a user's music preferences, both explicit ratings and implicit oftenly heard songs, and mapping another song closest to the preference. For implicit ratings, collaborative filtering on audio properties of the song and other metadata about it are leveraged to plug into a model based on collaborative filtering [1] or through Singular Value Decomposition [2]. On the flip side, some recommendation models also operate via clustering similar songs together and recommending new songs from the cluster [3].
 For this project, we will be working on the Million Song dataset [4] which contains 300GB of metadata of 1 million songs, as the name suggests. Some of the features of this dataset include beat frequency, artist tags, energy, danceability, segments_timbre_shape. While we do not know what every feature represents in terms of audio properties, the plenty of features do give us enough playroom to engineer more meaningful features for the model.
 
+
 ## Problem Definition
-In this project we aim to build a music recommendation system that analyzes a user’s music preferences and provides meaningful recommendations. Our system will be based on the Million Song dataset which contains metadata for 1 million songs. We will engineer meaningful features from the dataset, and experiment with collaborative filtering and clustering techniques to build the most effective recommendation model.
+
+In this project we aim to build a music recommendation system that analyzes a user’s music preferences and provides meaningful recommendations. Our system will be based on the Million Song dataset which contains metadata for 1 million songs. We will use the Echo Nest Taste Profile Subset [4] to obtain data on user preferences. We will engineer meaningful features from the dataset, and experiment with collaborative filtering and clustering techniques to build the most effective recommendation model.
 
 ## Methods
 
-For modeling we will experiment with different techniques under supervised and unsupervised learning. We would start by providing next song recommendations to users based on a few previous songs. For supervised learning, we plan to experiment with classifiers like KNN and MLP to find a candidate set of next songs that would land closest to the given input song. We would use an appropriate distance metric like Euclidean Distance or Cosine Similarity on song representations in the model’s feature space to find a list of next songs. Under the unsupervised paradigm, we will experiment with clustering techniques like K-Means, GMM and DBSCAN to suggest songs belonging to the same cluster. 
+For modeling we will experiment with different techniques under supervised and unsupervised learning. We would start by providing next song recommendations to users based on a few previous songs. For supervised learning, we plan to experiment with classifiers like KNN and MLP to find a candidate set of next songs that would land closest to the given input song. We would use an appropriate distance metric like Euclidean Distance or Cosine Similarity on song representations in the model’s feature space to find a list of next songs. Under the unsupervised paradigm, we will experiment with clustering techniques like K-Means, GMM and DBSCAN to suggest songs belonging to the same cluster.
+
+The second type of recommendation we plan to implement is collaborative filtering. We will experiment with collaborative filtering methods like cosine similarity and SVD with reduced dimensions to create models. These models will be used to recommend songs to a user based on their likes, using the preferences of other users. The recommendations provided by multiple collaborative filtering approaches will be compared to learn the pros and cons of each approach. We also aim to compare the quality of recommendations provided to a user using clustering based models and collaborative filtering models.
+
 
 ## Potential Results and Discussion
 
