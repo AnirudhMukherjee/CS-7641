@@ -20,6 +20,8 @@ For modeling we will experiment with different techniques under supervised and u
 We plan on measuring the impact of recommendations using three metrics over a k-fold cross validation [5] set- Precision@k, Recall@k or HitRatio@k, Accuracy@k of the list of recommendations. Furthermore, conducting an EDA on this dataset should help us visualize the intricacies between various genres like their BPM, loudness, etc. [6] 
 This project would engender discussion topics like performance of various models in song recommendations, ideal approach of recommending songs from song sets and determining the appropriate distance measures for choosing the closest song from the candidate pool of songs.
 
+![](https://github.com/AnirudhMukherjee/CS-7641/blob/main/heat_map.png)
+
 ## Proposed Timeline
 
 INSERT IMAGE HERE
