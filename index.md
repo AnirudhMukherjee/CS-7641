@@ -48,7 +48,9 @@ This project would engender discussion topics like performance of various models
 ## Proposed Timeline
 
 INSERT IMAGE HERE
-[Link to Gantt Chart] (https://drive.google.com/file/d/1kYv0eMd6moiMXjqHtyMAOoOe5MlqGz8l/view?usp=sharing)
+
+
+[Link to Gantt Chart](https://drive.google.com/file/d/1kYv0eMd6moiMXjqHtyMAOoOe5MlqGz8l/view?usp=sharing)
 
 ## Contribution table
 
