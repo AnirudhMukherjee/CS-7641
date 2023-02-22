@@ -26,7 +26,7 @@ The second type of recommendation we plan to implement is collaborative filterin
 We plan on measuring the impact of recommendations using three metrics over a k-fold cross validation [5] set- Precision@k, Recall@k or HitRatio@k, Accuracy@k of the list of recommendations. Furthermore, conducting an EDA on this dataset should help us visualize the intricacies between various genres like their BPM, loudness, etc. [6] 
 This project would engender discussion topics like performance of various models in song recommendations, ideal approach of recommending songs from song sets and determining the appropriate distance measures for choosing the closest song from the candidate pool of songs.
 
-![Heat_map](https://github.com/AnirudhMukherjee/CS-7641/blob/main/heat_map.png)
+![Heat_map](heat_map.png)
 ![Scatter plot](https://github.com/AnirudhMukherjee/CS-7641/blob/main/t.png)
 ![Correlation plot](https://github.com/AnirudhMukherjee/CS-7641/blob/main/correlation%20plot.png)
 ## Proposed Timeline
