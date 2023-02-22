@@ -38,25 +38,27 @@ In this project we aim to build a music recommendation system that analyzes a us
 
 ## Methods
 
+For modeling we will experiment with different techniques under supervised and unsupervised learning. We would start by providing next song recommendations to users based on a few previous songs. For supervised learning, we plan to experiment with classifiers like KNN and MLP to find a candidate set of next songs that would land closest to the given input song. We would use an appropriate distance metric like Euclidean Distance or Cosine Similarity on song representations in the model’s feature space to find a list of next songs. Under the unsupervised paradigm, we will experiment with clustering techniques like K-Means, GMM and DBSCAN to suggest songs belonging to the same cluster. 
+
 ## Potential Results and Discussion
 
 We plan on measuring the impact of recommendations using three metrics over a k-fold cross validation [5] set- Precision@k, Recall@k or HitRatio@k, Accuracy@k of the list of recommendations. Furthermore, conducting an EDA on this dataset should help us visualize the intricacies between various genres like their BPM, loudness, etc. [6] 
 This project would engender discussion topics like performance of various models in song recommendations, ideal approach of recommending songs from song sets and determining the appropriate distance measures for choosing the closest song from the candidate pool of songs.
 
 ## Proposed Timeline
-link: 
 
-{insert image here}
-  
+INSERT IMAGE HERE
+[Link to Gantt Chart] (https://drive.google.com/file/d/1kYv0eMd6moiMXjqHtyMAOoOe5MlqGz8l/view?usp=sharing)
+
 ## Contribution table
 
 | Name              | Task        |
 | ----------------- | ----------- |
-| Aditya Salian     | Title       |
-| Shlok Shah        | Text        |
-| Anirudh Mukherjee | Title       |
-| Vidit Jain        | Text        |
-| Shivam Agarwal    | Text        |
+| Aditya Salian     | Dataset Search, Results and Discussions, Presentation Recording       |
+| Shlok Shah        | Github Page Creation, Introduction/Background, Presentation Recording        |
+| Anirudh Mukherjee | Dataset Search, Gantt Chart, Github page creation, Presentation Recording       |
+| Vidit Jain        | Problem Definition, Methods, Presentation Recording        |
+| Shivam Agarwal    | Problem Definition, Methods, Presentation Recording        |
  
   
 
