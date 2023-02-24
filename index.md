@@ -20,20 +20,22 @@ Music recommendation systems generally operate by analyzing a user's music prefe
 <br /> 
 For this project, we will be working on the Million Song dataset [4] which contains 300GB of metadata of 1 million songs, as the name suggests. Some of the features of this dataset include beat frequency, artist tags, energy, danceability, segments_timbre_shape. While we do not know what every feature represents in terms of audio properties, the plenty of features do give us enough playroom to engineer more meaningful features for the model.
 
-<br /> 
+
 
 ## Problem Definition
 
 In this project we aim to build a music system that analyzes a song to predict whether it will be a hit song or not and provide recommendations to other such similar songs. Our system will be based on the Million Song dataset which contains metadata for 1 million songs. We will use the Echo Nest Taste Profile Subset [4] to obtain data on user preferences.
-<br /> 
+
 
 ## Methods
 
-For hit prediction of songs, we will benchmark the performance of 3 supervised learning algorithms- Random Forest, Naive Bayes and SVM. For song recommendations, we will be benchmarking the performance of 3 unsupervised learning algorithms- Collaborative Filtering, DBSCAN and GMM.
+For hotness score prediction of songs, we will benchmark the performance of three supervised learning algorithms- Random Forest, Naive Bayes and SVM. For song recommendations, we will be benchmarking the performance of three unsupervised learning algorithms- Collaborative Filtering, DBSCAN and GMM.
+
+These algorithms will be evaluated on their ability to predict the hotness of songs and their ability to group songs together based on some characteristics and provide recommendations to users. By benchmarking the performance of these algorithm, we hope to identify effective methods that can be used to predict some characteristics and recommend songs to users.
+
 <br />
 The second type of recommendation we plan to implement is collaborative filtering. We will experiment with collaborative filtering methods like cosine similarity and SVD with reduced dimensions to create models. These models will be used to recommend songs to a user based on their likes, using the preferences of other users. The recommendations provided by multiple collaborative filtering approaches will be compared to learn the pros and cons of each approach. We also aim to compare the quality of recommendations provided to a user using clustering based models and collaborative filtering models.
 
-<br /> 
 
 ## Potential Results and Discussion
 
