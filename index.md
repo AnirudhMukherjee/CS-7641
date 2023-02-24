@@ -2,7 +2,7 @@
 title: Project Proposal
 layout: home
 ---
-# The Perfect Playlist
+# Beat Buddy
 {: .no_toc }
 
 ## Table of contents
