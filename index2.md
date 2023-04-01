@@ -184,9 +184,11 @@ We observe that there is a difference between the scores of r2_train and r2_test
 On observing the features importance scores for each of the 12 features used by us, we obtain non-negative and non-null values for the features, with artist_familiarity and artist_hotness to have the highest importance score amongst the selected features. This would bear an indication towards a hypothesis that an artist’s brand itself plays a big role in determining the kind of popularity a song receives.  
 <br />
 
+![Feature Importance Image](image9.png "Feature Importance Score")
+
 Overall, the Random Forest regressor provides us with a higher R2 score thus indicating a better performance as compared to the Linear Regression based model.  We also observe that the number of sample points proves to be less for training an effective mode and perhaps increasing the training size to a hundred thousand samples would potentially yield better results. One of the next steps for our final report will be to train the model on more data from the million song dataset.
 
-![Feature Importance Image](image9.png)
+
 
 ## Contribution table
 
