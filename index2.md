@@ -14,45 +14,38 @@ layout: page
 ## Introduction
 
 <!-- <iframe src ="GenreDeminationOverYears.html" height = "500" width = "500"></iframe> -->
-Phrases such as "Alexa, play songs like 'Girls like you' on Spotify" and "Play today's hit songs'", have become ubiquitous this decade and the core algorithms powering them are recommender and ranking systems. Such systems find applications in almost every music software product we interact with and are greatly responsible for making them more enjoyable for us.
-<br /> 
-Simple pattern matching hints that popular songs have similar musical attributes common amongst them. These attributes can be in turn leveraged by systems and artists to predict whether a new song conforms to them and will be a hit or not. [1]
-Music recommendation systems generally operate by analyzing a user's music preferences and mapping another song closest to the preference. Some recommendation models operate via collaborative filtering on audio properties of the song [2]. Some recommendation models also operate via clustering similar songs together and recommending new songs from the cluster [3].
-<br /> 
-For this project, we will be working on the Million Song dataset [4] which contains 300GB of metadata of 1 million songs, as the name suggests. Some of the features of this dataset include beat frequency, artist tags, energy, danceability, key, mode and tempo. While we do not know what every feature represents in terms of audio properties, the plenty of features do give us enough playroom to engineer more meaningful features for the model.
+Phrases such as "Alexa, play songs like 'Girls like you' on Spotify" and "Play today's hit songs'", have become ubiquitous this decade and the core algorithms powering them are recommender and ranking systems. Such systems find applications in almost every music software product we interact with and are greatly responsible for making them more enjoyable for us. 
 
-<br /> 
+Simple pattern matching hints that popular songs have similar musical attributes common amongst them. These attributes can be in turn leveraged by systems and artists to predict whether a new song conforms to them and will be a hit or not. [1]
+Music recommendation systems generally operate by analyzing a user's music preferences and mapping another song closest to the preference. Some recommendation models operate via collaborative filtering on audio properties of the song [2]. Some recommendation models also operate via clustering similar songs together and recommending new songs from the cluster [3]. 
+
+For this project, we will be working on the Million Song dataset [4] which contains 300GB of metadata of 1 million songs, as the name suggests. Some of the features of this dataset include beat frequency, artist tags, energy, danceability, key, mode and tempo. While we do not know what every feature represents in terms of audio properties, the plenty of features do give us enough playroom to engineer more meaningful features for the model. 
+
 
 ## Problem Definition
-
-In this project we aim to build a music system that analyzes a song to predict whether it will be a hit song or not and provide recommendations to other such similar songs. Our system will be based on the Million Song dataset which contains metadata for 1 million songs. We will use the Echo Nest Taste Profile Subset [4] to obtain data on user preferences.
-<br /> 
-
+ 
+In this project we aim to build a music system that analyzes a song to predict whether it will be a hit song or not and provide recommendations to other such similar songs. Our system will be based on the Million Song dataset which contains metadata for 1 million songs. We will use the Echo Nest Taste Profile Subset [4] to obtain data on user preferences. 
+ 
 ## Data Collection:
 
 ### Phase 1 - Obtaining the Data
-
+  
 We obtained our data from the Million Song Dataset. It contains metadata and audio features for a million popular music tracks. The dataset contains 54 features in total. It’s important to note that the dataset does not include any audio. The description for each feature in the dataset can be found on this link - [http://millionsongdataset.com/pages/example-track-description/](http://millionsongdataset.com/pages/example-track-description/)
-<br /> 
-Due to its popularity, there are several datasets which are complementary to the million song dataset and provide information like lyrics, song similarity, user ratings etc. We haven’t used these datasets until our mid term evaluation but don’t discount using them by the end of the project for some tangential analysis.
-<br /> 
-The entire dataset is available as an Amazon Public Dataset Snapshot. We attached this to an EC2 instance to obtain the data.
-<br /> 
-The data we obtained from the million song dataset was in the form of multiple h5 files. In our initial analysis, we have used 17 gigabytes out of the almost 500 gigabytes of data from the original dataset. This translates to roughly 63,000 song records for our analysis. The dataset also provided a summary file describing each column in the dataset called “subset_msd_summary_file.h5”. We used this file to get the datatype of each column.
-<br /> 
-We read the multiple h5 files, combining them in a single dataframe and then stored this dataframe in the form of a pickle file for ease of use when performing further analysis and training our models.
-<br /> 
+ 
+Due to its popularity, there are several datasets which are complementary to the million song dataset and provide information like lyrics, song similarity, user ratings etc. We haven’t used these datasets until our mid term evaluation but don’t discount using them by the end of the project for some tangential analysis. The entire dataset is available as an Amazon Public Dataset Snapshot. We attached this to an EC2 instance to obtain the data. 
 
+The data we obtained from the million song dataset was in the form of multiple h5 files. In our initial analysis, we have used 17 gigabytes out of the almost 500 gigabytes of data from the original dataset. This translates to roughly 63,000 song records for our analysis. The dataset also provided a summary file describing each column in the dataset called “subset_msd_summary_file.h5”. We used this file to get the datatype of each column. We read the multiple h5 files, combining them in a single dataframe and then stored this dataframe in the form of a pickle file for ease of use when performing further analysis and training our models.  
+ 
 ### Phase 2 - Data Cleaning
-
-The dataset has quite a few features which are in the form of lists mostly stored as metadata which was not useful for our analysis. The dataset also had a large number of NaN values (= 107761) which we planned on eliminating. On removing the list-like features we are left with 24 features. We used these records with the remaining features to generate a correlation matrix in order to visualize the most independent features in our dataset and to remove features that are highly correlated as including those while training our models would be unnecessary. The heatmap of this matrix is given below.
-<br />
-
+  
+The dataset has quite a few features which are in the form of lists mostly stored as metadata which was not useful for our analysis. The dataset also had a large number of NaN values (= 107761) which we planned on eliminating. On removing the list-like features we are left with 24 features. We used these records with the remaining features to generate a correlation matrix in order to visualize the most independent features in our dataset and to remove features that are highly correlated as including those while training our models would be unnecessary. The heatmap of this matrix is given below.  
+ 
 ![Correlation Matrix 1](1.png)
+  
 
 From the initial heatmap, we can observe that 2 values, namely danceability and energy are 0 throughout the dataset as it required the use of another external API to fill in these values. 
 Furthermore, we only wanted to keep those features that would quantitatively describe a song and its associated artist and have only a single numerical value associated with it therefore dropping all non numerical values. Next, we dropped all the records that had null values in them and all the ‘Year’ values that were set to 0. This left us with about 20,000 records and 24 features. We are trying to predict the hotness of a song for this analysis, so we kept the 12 most independent features in order to predict a given song’s popularity score.
-
+  
 <br />
 These selected features are:
 
@@ -96,9 +89,9 @@ While working with the dataset, we observed that the genre feature in the datase
 We used Latent Dirichlet Allocation to associate artists with terms associated with them in the artist_terms feature. Since LDA allows a set of observations to be explained by unobserved groups for explaining similar looking data points in the dataset, we have described the soft clustering genre of an artist as a mixture of terms and topics attributable to a single generalizable topic (for example “Heavy Metal”). We refer to this soft clustering of genres of these artists as “branding” of an artist.
 
 ### Supervised Learning Algorithms
-
+  
 For the midpoint report, we focussed on implementing supervised learning algorithms with the goal of predicting the hotness of a song which is a direct indicator which determines how popular a given song is. The ‘song_hotttnesss’ is a continuous feature with values between 0 and 1 that tell us how popular or a hit a particular song is. Using ‘song_hotttnesss’ as an indicator will aid us in recommending different kinds of music to a user while further improving upon the recommendation scheme in the future stages of our project.
-<br />
+  
 For this task, we implemented two supervised algorithms in order to analyze how well they are able to predict the song popularity given a certain set of features:
 
 1. Linear Regression
@@ -113,9 +106,8 @@ We begin with roughly 63,000 points of data and all the 54 features extracted fr
 For both linear regression and our random forest regressor, we split our data into a training set and a test set through a 80:20 split using the sklearn’s train_test_split module. For the random forest regressor, we set hyperparameters as the number of estimators (n_estimators) to 3 and max depth of trees (max_depth) to 10 to provide the best set of performance through some rough estimation. After fitting out models to the dataset, we evaluate the results on the test set to obtain the evaluation scores which have been discussed further in the next section.
 
 We also extract the importance scores of the features on which we trained the model as a sanity check to determine if the given features played an important role in predicting the popularity of a given song. 
-
-<br />
-
+  
+  
 ## Potential Results and Discussion
 
 ### Plotting Spread of Artists
@@ -143,27 +135,26 @@ We observe that song hotness is more evenly distributed than artist hotness over
 ### Propagation of Various "Brandings" over the years
 
 Since we now had the brandings of various artists computed, we decided to create an interactive visualization to depict the propagation and popularity over the years. The following depicts the time progression popularity of brandings of 4 out of the 10 genres categorized by us- Metal, Jazz, Soft Rock and Latin Music:
-
-<br />
-
-Metal Genre Progression: 
+  
+  
+#### Metal Genre Progression: 
 
 <iframe src ="GenreDeminationOverYears.html" height = "500" width = "800"></iframe>
 
-Jazz Genre Progression: 
+#### Jazz Genre Progression: 
 
 <iframe src ="JazzMusicOutputMap.html" height = "500" width = "800"></iframe>
 
-Soft Rock Genre Progression:
+#### Soft Rock Genre Progression:
 
 <iframe src ="SoftRockMusicOutputMap.html" height = "500" width = "800"></iframe>
 
-Latin Music Genre Progression:
+#### Latin Music Genre Progression:
 
 <iframe src ="LatinMusicOutputMap.html" height = "500" width = "800"></iframe>
 
 ### PCA on Genre Prediction 
-
+  
 We wanted to see the impact of segment_timbre features in distinguishing between genres. Thus, we conducted a PCA on this particular feature. The following were the results on two genres. We compared the results between Metal and Rap genres. As depicted, there is a clear distinction between the two genres.  
 
 ![Genre Prediction Image1](image3.png)
@@ -220,8 +211,5 @@ Overall, the Random Forest regressor provides us with a higher R2 score thus ind
 
 [4] Thierry Bertin-Mahieux, Daniel P.W. Ellis, Brian Whitman, and Paul Lamere. The Million Song Dataset. In Proceedings of the 12th International Society for Music Information Retrieval Conference (ISMIR 2011), 2011.
 
-[5] Schindler A, Mayer R, Rauber A. Facilitating Comprehensive Benchmarking Experiments on the Million Song Dataset. InISMIR 2012 Oct (pp. 469-474).
-
-[6] Cascante J. Song Genre Identification: The Million Song Dataset. Machine Learning Homework. 2017 Sep.
 
 
