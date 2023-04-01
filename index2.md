@@ -30,7 +30,7 @@ In this project we aim to build a music system that analyzes a song to predict w
 
 ## Data Collection:
 
-# Phase 1 - Collecting the Data
+### Phase 1 - Obtaining the Data
 
 We obtained our data from the Million Song Dataset. It contains metadata and audio features for a million popular music tracks. The dataset contains 54 features in total. It’s important to note that the dataset does not include any audio. The description for each feature in the dataset can be found on this link - [http://millionsongdataset.com/pages/example-track-description/](http://millionsongdataset.com/pages/example-track-description/)
 <br /> 
@@ -43,7 +43,7 @@ The data we obtained from the million song dataset was in the form of multiple h
 We read the multiple h5 files, combining them in a single dataframe and then stored this dataframe in the form of a pickle file for ease of use when performing further analysis and training our models.
 <br /> 
 
-# Phase 2 - Data Cleaning
+### Phase 2 - Data Cleaning
 
 The dataset has quite a few features which are in the form of lists mostly stored as metadata which was not useful for our analysis. The dataset also had a large number of NaN values (= 107761) which we planned on eliminating. On removing the list-like features we are left with 24 features. We used these records with the remaining features to generate a correlation matrix in order to visualize the most independent features in our dataset and to remove features that are highly correlated as including those while training our models would be unnecessary. The heatmap of this matrix is given below.
 <br />
@@ -87,7 +87,7 @@ A description of the final dataset:
 
 ## Methodology
 
-# Exploratory Data Analysis Heuristics (PCA and LDA)
+### Exploratory Data Analysis Heuristics and Use of Latent Dirichlet Allocation 
 
 Given features such as artist latitude and longitude for the dataset, we wanted to analyze the spread of artists across the world in the dataset. Furthermore, using this spread, our goal was to analyze the propagation of various genres of music across the world over the time duration specified by our dataset. 
 
@@ -95,32 +95,22 @@ While working with the dataset, we observed that the genre feature in the datase
 
 We used Latent Dirichlet Allocation to associate artists with terms associated with them in the artist_terms feature. Since LDA allows a set of observations to be explained by unobserved groups for explaining similar looking data points in the dataset, we have described the soft clustering genre of an artist as a mixture of terms and topics attributable to a single generalizable topic (for example “Heavy Metal”). We refer to this soft clustering of genres of these artists as “branding” of an artist.
 
-# Supervised Learning Algorithms
+### Supervised Learning Algorithms
 
 For the midpoint report, we focussed on implementing supervised learning algorithms with the goal of predicting the hotness of a song which is a direct indicator which determines how popular a given song is. The ‘song_hotttnesss’ is a continuous feature with values between 0 and 1 that tell us how popular or a hit a particular song is. Using ‘song_hotttnesss’ as an indicator will aid us in recommending different kinds of music to a user while further improving upon the recommendation scheme in the future stages of our project.
 <br />
 For this task, we implemented two supervised algorithms in order to analyze how well they are able to predict the song popularity given a certain set of features:
-<br />
 
 1. Linear Regression
 2. Random Forest Regression
-
-<br /> 
 
 To evaluate the performance of these models, we calculated two evaluation scores:
 1. Coefficient of determination (R2) score
 2. Mean squared error (MSE)
 
-<br />
-
 We begin with roughly 63,000 points of data and all the 54 features extracted from the dataset. To make an accurate and impactful model, feature selection is required to be performed since utilizing all features for our prediction task can hamper the model’s capabilities. For this, we referred back to our EDA results and selected 13 independent numerical features to represent the training set.
 
-<br />
-
 For both linear regression and our random forest regressor, we split our data into a training set and a test set through a 80:20 split using the sklearn’s train_test_split module. For the random forest regressor, we set hyperparameters as the number of estimators (n_estimators) to 3 and max depth of trees (max_depth) to 10 to provide the best set of performance through some rough estimation. After fitting out models to the dataset, we evaluate the results on the test set to obtain the evaluation scores which have been discussed further in the next section.
-
-<br />
-
 
 We also extract the importance scores of the features on which we trained the model as a sanity check to determine if the given features played an important role in predicting the popularity of a given song. 
 
@@ -128,16 +118,16 @@ We also extract the importance scores of the features on which we trained the mo
 
 ## Potential Results and Discussion
 
-# Plotting Spread of Artists
+### Plotting Spread of Artists
 
 After cleaning the dataset as specified in the Data Cleaning section, we had a dataframe of 16,158 artists. Using their latitude and longitudinal features, we plotted their location on the folium map as depicted below:
 ![Map World](image5.png)
 
-# Plotting the Year Distribution Histogram for Songs
+### Plotting the Year Distribution Histogram for Songs
 Using the “year” column in our dataset, we plotted a histogram of the song releases. Note that most of the distribution of this data is skewed towards the 1990s. 
 ![Year Distribution](image6.png)
 
-# Categorizing Genre of Artists Using Artist Description Terms
+### Categorizing Genre of Artists Using Artist Description Terms
 
 The dataset provided us with some genre tags for artists but those tags are very reductive of the versatility of the artists in the dataset. For genre classification of these artists, we wanted a soft clustering approach to group similar artists together. After performing LDA on our dataset, we found the following 10 genre of music: 
 
@@ -148,9 +138,9 @@ We then plotted a histogram to represent the distribution of these genres:
 To explore how the song hotness and artist hotness vary over the various genres, we create a joint distribution plot between the respective variables. 
 ![Contour Plot](image1.png)
 
-We observe that song hotness is more evenly distributed than artist hotness over the range of values for all genres and that artist hotness is positively correlated to song hotness over all genres.
+We observe that song hotness is more evenly distributed than artist hotness over the range of values for all genres and that artist hotness is positively correlated to song hotness over all genres. The contour plot shown above protrudes beyond the bounds of the graph to give a sense of the 3 dimensional plot on a 2 dimensional plane.
 
-# Propagation of Various "Brandings" over the years
+### Propagation of Various "Brandings" over the years
 
 Since we now had the brandings of various artists computed, we decided to create an interactive visualization to depict the propagation and popularity over the years. The following depicts the time progression popularity of brandings of 4 out of the 10 genres categorized by us- Metal, Jazz, Soft Rock and Latin Music:
 
@@ -158,21 +148,21 @@ Since we now had the brandings of various artists computed, we decided to create
 
 Metal Genre Progression: 
 
-<iframe src ="GenreDeminationOverYears.html" height = "500" width = "500"></iframe>
+<iframe src ="GenreDeminationOverYears.html" height = "500" width = "800"></iframe>
 
 Jazz Genre Progression: 
 
-<iframe src ="JazzMusicOutputMap.html" height = "500" width = "500"></iframe>
+<iframe src ="JazzMusicOutputMap.html" height = "500" width = "800"></iframe>
 
 Soft Rock Genre Progression:
 
-<iframe src ="SoftRockMusicOutputMap.html" height = "500" width = "500"></iframe>
+<iframe src ="SoftRockMusicOutputMap.html" height = "500" width = "800"></iframe>
 
 Latin Music Genre Progression:
 
-<iframe src ="LatinMusicOutputMap.html" height = "500" width = "500"></iframe>
+<iframe src ="LatinMusicOutputMap.html" height = "500" width = "800"></iframe>
 
-# PCA on Genre Prediction 
+### PCA on Genre Prediction 
 
 We wanted to see the impact of segment_timbre features in distinguishing between genres. Thus, we conducted a PCA on this particular feature. The following were the results on two genres. We compared the results between Metal and Rap genres. As depicted, there is a clear distinction between the two genres.  
 
@@ -181,7 +171,7 @@ We wanted to see the impact of segment_timbre features in distinguishing between
 Now, we decided to project a TSNE plot of all 10 genres. As we can see, the distinction between the 10 genres is evident.
 ![Genre Prediction Image2](image8.png)
 
-# Supervised Learning Results on Popularity Prediction 
+### Supervised Learning Results on Popularity Prediction 
 
 The performance metrics we calculated for the two models we trained as follows:
 
