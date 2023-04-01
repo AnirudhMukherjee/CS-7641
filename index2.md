@@ -40,6 +40,7 @@ The data we obtained from the million song dataset was in the form of multiple h
   
 The dataset has quite a few features which are in the form of lists mostly stored as metadata which was not useful for our analysis. The dataset also had a large number of NaN values (= 107761) which we planned on eliminating. On removing the list-like features we are left with 24 features. We used these records with the remaining features to generate a correlation matrix in order to visualize the most independent features in our dataset and to remove features that are highly correlated as including those while training our models would be unnecessary. The heatmap of this matrix is given below.  
  
+*Correlation Heatmap - 24 Features*     
 ![Correlation Matrix 1](1.png)
   
 
@@ -62,7 +63,8 @@ These selected features are:
 11. Tempo
 12. Start of fade out
 
-![Correlation Matrix 2](2.png)
+*Correlation Heatmap - 12 Features*   
+![Correlation Matrix 2](2.png)  
 
 A description of the final dataset:
 <br />
@@ -123,11 +125,15 @@ Using the “year” column in our dataset, we plotted a histogram of the song r
 
 The dataset provided us with some genre tags for artists but those tags are very reductive of the versatility of the artists in the dataset. For genre classification of these artists, we wanted a soft clustering approach to group similar artists together. After performing LDA on our dataset, we found the following 10 genre of music: 
 
+*Genre Categorization*   
 ![Genre Table](image4.png)
 We then plotted a histogram to represent the distribution of these genres: 
 
 ![Genre Histogram](image2.png)
 To explore how the song hotness and artist hotness vary over the various genres, we create a joint distribution plot between the respective variables. 
+  
+
+*Contour Plot Artist Hotness vs Song Hotness*   
 ![Contour Plot](image1.png)
 
 We observe that song hotness is more evenly distributed than artist hotness over the range of values for all genres and that artist hotness is positively correlated to song hotness over all genres. The contour plot shown above protrudes beyond the bounds of the graph to give a sense of the 3 dimensional plot on a 2 dimensional plane.
@@ -159,7 +165,8 @@ We wanted to see the impact of segment_timbre features in distinguishing between
 
 ![Genre Prediction Image1](image3.png)
 
-Now, we decided to project a TSNE plot of all 10 genres. As we can see, the distinction between the 10 genres is evident.
+Now, we decided to project a t-distributed stochastic neighbor embedding (t-SNE) to visualize all of the 10 genres. As we can see, the distinction between the 10 genres is evident.  
+
 ![Genre Prediction Image2](image8.png)
 
 ### Supervised Learning Results on Popularity Prediction 
@@ -184,8 +191,9 @@ We observe that there is a difference between the scores of r2_train and r2_test
 On observing the features importance scores for each of the 12 features used by us, we obtain non-negative and non-null values for the features, with artist_familiarity and artist_hotness to have the highest importance score amongst the selected features. This would bear an indication towards a hypothesis that an artist’s brand itself plays a big role in determining the kind of popularity a song receives.  
 <br />
 
+*Feature Importance Score*  
 ![Feature Importance Image](image9.png )
-*Feature Importance Score*
+
 Overall, the Random Forest regressor provides us with a higher R2 score thus indicating a better performance as compared to the Linear Regression based model.  We also observe that the number of sample points proves to be less for training an effective mode and perhaps increasing the training size to a hundred thousand samples would potentially yield better results. One of the next steps for our final report will be to train the model on more data from the million song dataset.
 
 
