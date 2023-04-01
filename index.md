@@ -13,7 +13,7 @@ layout: home
 
 ## Introduction
 
-<iframe src ="GenreDeminationOverYears.html" height = "500" width = "500"></iframe>
+<!-- <iframe src ="GenreDeminationOverYears.html" height = "500" width = "500"></iframe> -->
 Phrases such as "Alexa, play songs like 'Girls like you' on Spotify" and "Play today's hit songs'", have become ubiquitous this decade and the core algorithms powering them are recommender and ranking systems. Such systems find applications in almost every music software product we interact with and are greatly responsible for making them more enjoyable for us.
 <br /> 
 Simple pattern matching hints that popular songs have similar musical attributes common amongst them. These attributes can be in turn leveraged by systems and artists to predict whether a new song conforms to them and will be a hit or not. [1]
