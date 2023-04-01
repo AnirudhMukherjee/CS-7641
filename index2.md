@@ -189,8 +189,7 @@ We observe that there is a difference between the scores of r2_train and r2_test
 <br />
 
 On observing the features importance scores for each of the 12 features used by us, we obtain non-negative and non-null values for the features, with artist_familiarity and artist_hotness to have the highest importance score amongst the selected features. This would bear an indication towards a hypothesis that an artist’s brand itself plays a big role in determining the kind of popularity a song receives.  
-<br />
-
+  
 *Feature Importance Score*  
 ![Feature Importance Image](image9.png )
 
