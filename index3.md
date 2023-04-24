@@ -229,11 +229,24 @@ For the Random Forest Regressor,
 We observe that there is a difference between the scores of r2_train and r2_test indicating the model has overfit on the training data. This can also be improved upon by increasing the number of samples for training.
 <br />
 
+For the SVM Classifier, we experiment with a variety of kernels including RBF, poly and linear. As the data is highly complex and imbalanced, RBF kernel seems to perform the best in terms of the above metrics.
+<br />
+
+For Gradient Boosting Classifier, a grid search is performed for the learning rate and number of estimators. Increasing the estimators to a large number hurts performance and leads to overfitting. A perfect balance is obtained at 300 estimators with a learning rate of 0.5.
+<br />
+
+For the MLP classifier, we vary the number of hidden layers and neurons in each layer along with the learning rate. We discover that a high learning rate of 0.01 and three hidden layers having 100, 1000 and 100 neurons respectively gives the best performance.  
+<br />
+
 On observing the features importance scores for each of the 12 features used by us, we obtain non-negative and non-null values for the features, with artist_familiarity and artist_hotness to have the highest importance score amongst the selected features. This would bear an indication towards a hypothesis that an artist’s brand itself plays a big role in determining the kind of popularity a song receives.  
-  
+<br />
 
+The Random Forest regressor provides us with a higher R2 score when compared to a linear regression model thus indicating a better performance as compared to the Linear Regression based model.  We also observe that the number of sample points proves to be less for training an effective mode and perhaps increasing the training size to a hundred thousand samples would potentially yield better results.
+<br />
 
-Overall, the Random Forest regressor provides us with a higher R2 score thus indicating a better performance as compared to the Linear Regression based model.  We also observe that the number of sample points proves to be less for training an effective mode and perhaps increasing the training size to a hundred thousand samples would potentially yield better results. One of the next steps for our final report will be to train the model on more data from the million song dataset.
+For all the classification models, we make sure that the models don’t overfit using careful hyperparamter tuning and optimal regularization. High data imbalance makes the classification problem challenging. Since there is a high imbalance in the data, F1 score would be a better metric to measure performance than accuracy. Out of all the models we tried, we find that Gradient Boosting classifier performs the best according to the F1 score. We feel that is the case due to the fact that it is an ensemble based classifier and so its generalization capabilities are higher than the other two standalone models when trained on imbalanced data.
+
+![Gradient Boosting Classifier](image16f.png)
 
 ### Unsupervised Learning Results to Group Similar Songs
 
