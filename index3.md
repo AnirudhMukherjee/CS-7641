@@ -229,6 +229,10 @@ For the Random Forest Regressor,
 We observe that there is a difference between the scores of r2_train and r2_test indicating the model has overfit on the training data. This can also be improved upon by increasing the number of samples for training.
 <br />
 
+*Feature Importance Score for Random Forest Regressor*
+  
+![Feature Importance Image](image15f.png )
+
 For the SVM Classifier, we experiment with a variety of kernels including RBF, poly and linear. As the data is highly complex and imbalanced, RBF kernel seems to perform the best in terms of the above metrics.
 <br />
 
@@ -251,9 +255,6 @@ For all the classification models, we make sure that the models don’t overfit 
 ### Unsupervised Learning Results to Group Similar Songs
 
 The elbow method analysis for K-means was run over a range of K values from 1 to 40 for which we saw the elbow form over cluster number 10 after which it became stable and flatlined. This can be seen in the graph below
-
-*Feature Importance Score*  
-![Feature Importance Image](image15f.png )
 
 *K-Means Elbow Method*
 
