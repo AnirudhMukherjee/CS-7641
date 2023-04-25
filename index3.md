@@ -36,7 +36,7 @@ By comparing the performance of these algorithms, we will gain insights into the
 
 ### Phase 1 - Obtaining the Data
   
-We obtained our data from the Million Song Dataset. It contains metadata and audio features for a million popular music tracks. The dataset contains 54 features in total. It’s important to note that the dataset does not include any audio. The description for each feature in the dataset can be found on this link - [http://millionsongdataset.com/pages/example-track-description/] Million Song Dataset.
+We obtained our data from the Million Song Dataset. It contains metadata and audio features for a million popular music tracks. The dataset contains 54 features in total. It’s important to note that the dataset does not include any audio. The description for each feature in the dataset can be found on this link - [http://millionsongdataset.com/pages/example-track-description/] (http://millionsongdataset.com/pages/example-track-description/)
 
 Due to its popularity, there are several datasets which are complementary to the million song dataset and provide information like lyrics, song similarity, user ratings etc. The entire dataset is available as an Amazon Public Dataset Snapshot. We attached this to an EC2 instance to obtain the data.
 
@@ -105,7 +105,7 @@ We used Latent Dirichlet Allocation to associate artists with terms associated w
   
 We focussed on implementing supervised learning algorithms with the goal of predicting the hotness of a song which is a direct indicator which determines how popular a given song is. The ‘song_hotttnesss’ is a continuous feature with values between 0 and 1 that tell us how popular or a hit a particular song is. Using ‘song_hotttnesss’ as an indicator will aid us in recommending different kinds of music to a user.
   
-For this task, we implemented three supervised algorithms in order to analyze how well they are able to predict the song popularity given a certain set of features:
+For this task, we implemented five supervised algorithms in order to analyze how well they are able to predict the song popularity given a certain set of features:
 1. Linear Regression
 2. Random Forest Regression
 3. Support Vector Machine Classifier
