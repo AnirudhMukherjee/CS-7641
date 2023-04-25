@@ -259,6 +259,7 @@ The elbow method analysis for K-means was run over a range of K values from 1 to
 *K-Means Elbow Method*
 
 ![K-Means Elbow Method](image2f.png)
+
 This is an acceptable number and also conforms to our findings from our EDA. We observed the data to be broadly split between 10 genres. Hence, 10 clusters identified through elbow method seems to be an intuitive result, corresponding to the different genres identified.
 
 The performance metric we calculated for both K-means and DBSCAN was the silhouette score which we obtained as follows:
