@@ -54,7 +54,7 @@ The dataset has quite a few features which are in the form of lists mostly store
   
 
 From the initial heatmap, we can observe that 2 values, namely danceability and energy are 0 throughout the dataset as it required the use of another external API to fill in these values. 
-Furthermore, we only wanted to keep those features that would quantitatively describe a song and its associated artist and have only a single numerical value associated with it therefore dropping all non numerical values. Next, we dropped all the records that had null values in them and all the ‘Year’ values that were set to 0. This left us with about 416363 records and 24 features. We are trying to predict the hotness of a song for this analysis, so we kept the 19 most independent features in order to predict a given song’s popularity score.
+Furthermore, we only wanted to keep those features that would quantitatively describe a song and its associated artist and have only a single numerical value associated with it therefore dropping all non numerical values. Next, we dropped all the records that had null values in them and all the ‘Year’ values that were set to 0. This left us with about 41636 records and 24 features. We are trying to predict the hotness of a song for this analysis, so we kept the 19 most independent features in order to predict a given song’s popularity score.
   
 <br />
 These selected features are:
